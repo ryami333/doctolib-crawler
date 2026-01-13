@@ -18,7 +18,6 @@ const nextConfig = {
      */
     ignoreBuildErrors: true,
   },
-  productionBrowserSourceMaps: true,
   images: {
     unoptimized: true,
   },
