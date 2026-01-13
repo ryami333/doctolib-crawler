@@ -1,4 +1,4 @@
-import { createEnv } from "@t3-oss/env-core";
+import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
 export const env = createEnv({
@@ -16,13 +16,26 @@ export const env = createEnv({
     OAUTH_CLIENT_ID: z.string().nonempty(),
     OAUTH_CLIENT_SECRET_FILE: z.string().nonempty(),
     OAUTH_ISSUER: z.string().nonempty(),
+    BETTER_AUTH_TRUSTED_ORIGINS: z.string().nonempty(),
+  },
+
+  client: {
+    NEXT_PUBLIC_BASE_URL: z.url(),
   },
 
   /**
    * What object holds the environment variables at runtime. This is usually
    * `process.env` or `import.meta.env`.
    */
-  runtimeEnv: process.env,
+  runtimeEnv: {
+    PORT: process.env.PORT,
+    AUTH_SECRET_FILE: process.env.AUTH_SECRET_FILE,
+    OAUTH_CLIENT_ID: process.env.OAUTH_CLIENT_ID,
+    OAUTH_CLIENT_SECRET_FILE: process.env.OAUTH_CLIENT_SECRET_FILE,
+    OAUTH_ISSUER: process.env.OAUTH_ISSUER,
+    BETTER_AUTH_TRUSTED_ORIGINS: process.env.BETTER_AUTH_TRUSTED_ORIGINS,
+    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+  },
 
   /**
    * By default, this library will feed the environment variables directly to

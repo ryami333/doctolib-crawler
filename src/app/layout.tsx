@@ -2,17 +2,18 @@ import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 
 import { MantineProvider } from "@mantine/core";
-import { auth, signIn } from "../../auth";
 import { App } from "../components/App";
 import { Notifications } from "@mantine/notifications";
+import { authClient } from "../helpers/authClient";
 
 export const dynamic = "force-dynamic";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
-  const session = await auth();
-
+  const session = await authClient.getSession();
   if (!session) {
-    return signIn();
+    return authClient.signIn.social({
+      provider: "pocket-id",
+    });
   }
 
   const colorScheme = "dark" as const;
