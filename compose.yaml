@@ -1,0 +1,49 @@
+services:
+  redis:
+    volumes:
+      - ./redis-data:/data
+    image: redis:8-alpine
+    networks:
+      - kc-internal
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node ./lib/worker.ts
+    env_file: .env
+    environment:
+      GMAIL_PASS_FILE: /run/secrets/GMAIL_PASS
+    secrets:
+      - GMAIL_PASS
+    networks:
+      - kc-internal
+    depends_on:
+      - redis
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: yarn next start
+    env_file: .env
+    environment:
+      AUTH_SECRET_FILE: /run/secrets/AUTH_SECRET
+      OAUTH_CLIENT_SECRET_FILE: /run/secrets/OAUTH_CLIENT_SECRET
+    secrets:
+      - AUTH_SECRET
+      - OAUTH_CLIENT_SECRET
+    networks:
+      - kc-internal
+    depends_on:
+      - redis
+secrets:
+  GMAIL_PASS:
+    file: ./secrets/GMAIL_PASS
+  AUTH_SECRET:
+    file: ./secrets/AUTH_SECRET
+  OAUTH_CLIENT_SECRET:
+    file: ./secrets/OAUTH_CLIENT_SECRET
+networks:
+  kc-internal:
+    driver: bridge
