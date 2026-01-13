@@ -28,7 +28,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
       <AppShell.Header>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <Title size="lg">Kleinanzeigen Crawler</Title>
+          <Title size="lg">Doctolib Crawler</Title>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
