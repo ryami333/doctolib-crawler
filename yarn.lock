@@ -966,9 +966,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:^8.3.8":
-  version: 8.3.8
-  resolution: "@mantine/core@npm:8.3.8"
+"@mantine/core@npm:^8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/core@npm:8.3.12"
   dependencies:
     "@floating-ui/react": "npm:^0.27.16"
     clsx: "npm:^2.1.1"
@@ -977,43 +977,43 @@ __metadata:
     react-textarea-autosize: "npm:8.5.9"
     type-fest: "npm:^4.41.0"
   peerDependencies:
-    "@mantine/hooks": 8.3.8
+    "@mantine/hooks": 8.3.12
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/7027f8b632262b7fc2e29f61a7d8e6f6bc6426f7e5ea93baf031484cf915615e9e36e4799e849cc85d29a2eddc57557d041310c16286a537ed0779bca72cda92
+  checksum: 10c0/8c7986c3202026651749d6fe96ab01ca4d72df5c81b791d693e7d41bf3122baaa1244f4a1d74ab7dc86949c1842bfe407441ab609951a358fee54e7582700d07
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:^8.3.8":
-  version: 8.3.8
-  resolution: "@mantine/hooks@npm:8.3.8"
+"@mantine/hooks@npm:^8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/hooks@npm:8.3.12"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/5b140aad8881b27b2930c82bc39886c8076ad88ca41ab7c177e3e5fc5d480564189c1449a2acee4a90bd7beeb21a0458e0c3952bb45be75ac2d2e16d27865238
+  checksum: 10c0/a2e0ef9a47155f1c73e8b4e9a111ebfd822d01cc98ac048c938c7e9fa734191d789e8121617800ae803f27dd1ff213e1ef891cb6a1ba224f69b0b51ac258a2a3
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:^8.3.8":
-  version: 8.3.8
-  resolution: "@mantine/notifications@npm:8.3.8"
+"@mantine/notifications@npm:^8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/notifications@npm:8.3.12"
   dependencies:
-    "@mantine/store": "npm:8.3.8"
+    "@mantine/store": "npm:8.3.12"
     react-transition-group: "npm:4.4.5"
   peerDependencies:
-    "@mantine/core": 8.3.8
-    "@mantine/hooks": 8.3.8
+    "@mantine/core": 8.3.12
+    "@mantine/hooks": 8.3.12
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/528ef41218046e457a4d4dee80dd390a951df7a30deea7940002c5c4dc82a3176fe3ac48e46cda57d3aa84cd4f43a8ae8a2388a94692e8eb4dd02c1a0f011d88
+  checksum: 10c0/2635320566552172390b86b26bdc309518d9b740cb96d41ad551a9bc53f30e6b6b906da8c98f252e3b418ef5878e96ebccc46aa20ec0520b4d569fa14ccf89c1
   languageName: node
   linkType: hard
 
-"@mantine/store@npm:8.3.8":
-  version: 8.3.8
-  resolution: "@mantine/store@npm:8.3.8"
+"@mantine/store@npm:8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/store@npm:8.3.12"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/a9d277ed157ad4110e09e1da986ec695c96398ceab902e4063a842011587592594228aea1442580e953050f412f4bbf212c6caccf55f8e0483937decdfe840b4
+  checksum: 10c0/f5ab5b8ebc690cbd447b97ab8654c9e7173006011a03156030b08dbe23ad19cdbaf104368735042df6048030676dd23e3f8ee8c50db09c55d11a21a3a7e5d896
   languageName: node
   linkType: hard
 
@@ -1733,21 +1733,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-react@npm:^3.35.0":
-  version: 3.35.0
-  resolution: "@tabler/icons-react@npm:3.35.0"
+"@tabler/icons-react@npm:^3.36.1":
+  version: 3.36.1
+  resolution: "@tabler/icons-react@npm:3.36.1"
   dependencies:
-    "@tabler/icons": "npm:3.35.0"
+    "@tabler/icons": "npm:"
   peerDependencies:
     react: ">= 16"
-  checksum: 10c0/8d280fcdae00916b001142ba0800ea05d8fa2acdcbd82f88a299b4141fb941237be2e826b86b1af710e038b4f8bb6f76f452c3309c29fd62398b4d5789c2b3e0
+  checksum: 10c0/325dd0c7a780ec4713a93790b15517dc176af5778c36c49e1fe586113040d2e71330aa85aa9f5900cbae0fe0b78f69016ba73b4b490783c9b7292215f29c686a
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:3.35.0":
-  version: 3.35.0
-  resolution: "@tabler/icons@npm:3.35.0"
-  checksum: 10c0/93098828128ffed2cf412b39bd78992f93f25b22349a4e04523d2a018b7fe376ddeff105babcc3efedd707aa00b705425c7d9f598d6987552a563c62125795a2
+"@tabler/icons@npm:":
+  version: 3.36.1
+  resolution: "@tabler/icons@npm:3.36.1"
+  checksum: 10c0/3201b3ccace5756ba9e840ece3922718165b820f760b7bc01bcab21bf7d6fed5da6e876ea9e1155ed498d8eb008e3ac3308b270c402d744014dafad20d99534c
   languageName: node
   linkType: hard
 
@@ -2214,11 +2214,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "doctolib-crawler@workspace:."
   dependencies:
-    "@mantine/core": "npm:^8.3.8"
-    "@mantine/hooks": "npm:^8.3.8"
-    "@mantine/notifications": "npm:^8.3.8"
+    "@mantine/core": "npm:^8.3.12"
+    "@mantine/hooks": "npm:^8.3.12"
+    "@mantine/notifications": "npm:^8.3.12"
     "@t3-oss/env-core": "npm:^0.13.8"
-    "@tabler/icons-react": "npm:^3.35.0"
+    "@tabler/icons-react": "npm:^3.36.1"
     "@types/bull": "npm:^4.10.4"
     "@types/express": "npm:^5.0.5"
     "@types/jsdom": "npm:^27.0.0"
