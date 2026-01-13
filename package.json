@@ -1,5 +1,5 @@
 {
-  "name": "kleinanzeigen-crawler",
+  "name": "doctolib-crawler",
   "packageManager": "yarn@4.2.2",
   "devDependencies": {
     "@types/bull": "^4.10.4",
