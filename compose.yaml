@@ -1,7 +1,7 @@
 services:
   valkey:
     volumes:
-      - ./valkey-data:/data
+      - ./data/valkey:/data
     image: valkey/valkey:9-alpine
     networks:
       - kc-internal
