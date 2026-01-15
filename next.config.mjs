@@ -1,15 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    /**
-     * Enables automatic `integrity="sha384-…"` attributes being added to every
-     * internal script and stylesheet.
-     */
-    sri: {
-      algorithm: "sha384",
-    },
-  },
   typescript: {
     /**
      * Typechecking and building will be done in separate steps in the build
