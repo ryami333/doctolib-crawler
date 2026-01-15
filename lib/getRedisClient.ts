@@ -2,10 +2,10 @@ import { createClient } from "redis";
 
 export const getRedisClient = async () => {
   const client = createClient({
-    url: `redis://redis:6379`, // 'redis' is the hostname within Docker
+    url: `redis://valkey:6379`, // 'valkey' is the hostname within Docker
   });
 
-  client.on("error", (err) => console.error("Redis Client Error", err));
+  client.on("error", (err) => console.error("Valkey Client Error", err));
 
   await client.connect();
 
