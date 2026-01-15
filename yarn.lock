@@ -597,9 +597,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@better-auth/core@npm:1.4.12":
-  version: 1.4.12
-  resolution: "@better-auth/core@npm:1.4.12"
+"@better-auth/core@npm:1.4.13":
+  version: 1.4.13
+  resolution: "@better-auth/core@npm:1.4.13"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     zod: "npm:^4.1.12"
@@ -610,19 +610,19 @@ __metadata:
     jose: ^6.1.0
     kysely: ^0.28.5
     nanostores: ^1.0.1
-  checksum: 10c0/4e60e2b98d812540683d76a29be8bb222bef78e4e2d73901f36eac0c1ab86f8e3c67ab257ff78380a00eb3cd59fc11d884ea5def0defdc9713d3263b512f1744
+  checksum: 10c0/7362048535358e30717941529bbe143cf5c986f405dae3d407b1d5171f81c56c54601884448cb9014106009f1865f4cddd53415553dd6a9dd8832dbb1a6e8a01
   languageName: node
   linkType: hard
 
-"@better-auth/telemetry@npm:1.4.12":
-  version: 1.4.12
-  resolution: "@better-auth/telemetry@npm:1.4.12"
+"@better-auth/telemetry@npm:1.4.13":
+  version: 1.4.13
+  resolution: "@better-auth/telemetry@npm:1.4.13"
   dependencies:
     "@better-auth/utils": "npm:0.3.0"
     "@better-fetch/fetch": "npm:1.1.21"
   peerDependencies:
-    "@better-auth/core": 1.4.12
-  checksum: 10c0/2f0e79c05d9543f7b33c87e9fe06a7a7e780db02d49a66d3c9561462e428aeef0e72652011dfd25a4603f9817e7d7e908c66932ee34b71ddd996ec340a03ea8a
+    "@better-auth/core": 1.4.13
+  checksum: 10c0/3a0216e2f4fa1b9bf7e3441385a104e9b55854803daefd55268d1ced9346f9306e5798b05889700dc3515ecf53dec94bb07a1f1726fc9ce3dbd15fb825ef8788
   languageName: node
   linkType: hard
 
@@ -1116,65 +1116,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/env@npm:16.1.1"
-  checksum: 10c0/54f0dd11bfaf9b2161afcace9b29e9b82485c789bda185e206696c922e0f7aa419840a2b014c834a4f506f2534b33167f653289e4ab5cddae283b0321c71d0b5
+"@next/env@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/env@npm:16.1.2"
+  checksum: 10c0/d73c2cdf060fd8b4b4a93fcb4463eab04a266e9cc3cae73d467cd380801d50a499be6ef432c1f6586e3b37602820f3be80ec706e273ee100cd49f9852f3edc13
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-darwin-arm64@npm:16.1.1"
+"@next/swc-darwin-arm64@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-darwin-arm64@npm:16.1.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-darwin-x64@npm:16.1.1"
+"@next/swc-darwin-x64@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-darwin-x64@npm:16.1.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-linux-arm64-gnu@npm:16.1.1"
+"@next/swc-linux-arm64-gnu@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-linux-arm64-gnu@npm:16.1.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-linux-arm64-musl@npm:16.1.1"
+"@next/swc-linux-arm64-musl@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-linux-arm64-musl@npm:16.1.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-linux-x64-gnu@npm:16.1.1"
+"@next/swc-linux-x64-gnu@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-linux-x64-gnu@npm:16.1.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-linux-x64-musl@npm:16.1.1"
+"@next/swc-linux-x64-musl@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-linux-x64-musl@npm:16.1.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-win32-arm64-msvc@npm:16.1.1"
+"@next/swc-win32-arm64-msvc@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-win32-arm64-msvc@npm:16.1.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:16.1.1":
-  version: 16.1.1
-  resolution: "@next/swc-win32-x64-msvc@npm:16.1.1"
+"@next/swc-win32-x64-msvc@npm:16.1.2":
+  version: 16.1.2
+  resolution: "@next/swc-win32-x64-msvc@npm:16.1.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2048,12 +2048,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"better-auth@npm:^1.4.12":
-  version: 1.4.12
-  resolution: "better-auth@npm:1.4.12"
+"better-auth@npm:^1.4.13":
+  version: 1.4.13
+  resolution: "better-auth@npm:1.4.13"
   dependencies:
-    "@better-auth/core": "npm:1.4.12"
-    "@better-auth/telemetry": "npm:1.4.12"
+    "@better-auth/core": "npm:1.4.13"
+    "@better-auth/telemetry": "npm:1.4.13"
     "@better-auth/utils": "npm:0.3.0"
     "@better-fetch/fetch": "npm:1.1.21"
     "@noble/ciphers": "npm:^2.0.0"
@@ -2068,7 +2068,7 @@ __metadata:
     "@lynx-js/react": "*"
     "@prisma/client": ^5.0.0 || ^6.0.0 || ^7.0.0
     "@sveltejs/kit": ^2.0.0
-    "@tanstack/react-start": ^1.0.0
+    "@tanstack/start-server-core": ^1.0.0
     better-sqlite3: ^12.0.0
     drizzle-kit: ">=0.31.4"
     drizzle-orm: ">=0.41.0"
@@ -2090,7 +2090,7 @@ __metadata:
       optional: true
     "@sveltejs/kit":
       optional: true
-    "@tanstack/react-start":
+    "@tanstack/start-server-core":
       optional: true
     better-sqlite3:
       optional: true
@@ -2120,7 +2120,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10c0/ced1e59e11ff1aec88b86460ff7574854304d42fc1d6c23d124c55637052327d48fb6d6c02ed7ff225e5eb4243311fe472728e42ae9f0bf69589607317b873a0
+  checksum: 10c0/5596c1fd06ce99e93157cd07580aec422c58e700762ce149ef65af5f5b1984e686bc493a2e252ceecfe5884a0d5c787aed78d60cd3306dead72a784cf3ad5900
   languageName: node
   linkType: hard
 
@@ -2388,13 +2388,13 @@ __metadata:
     "@types/nodemailer": "npm:^7.0.5"
     "@types/react": "npm:^19.2.8"
     "@types/react-dom": "npm:^19.2.3"
-    better-auth: "npm:^1.4.12"
+    better-auth: "npm:^1.4.13"
     bull: "npm:^4.16.5"
     dotenv: "npm:^17.2.3"
     jsdom: "npm:^27.4.0"
-    next: "npm:16.1.1"
+    next: "npm:16.1.2"
     nodemailer: "npm:^7.0.12"
-    prettier: "npm:^3.7.4"
+    prettier: "npm:^3.8.0"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
     redis: "npm:^5.10.0"
@@ -2984,19 +2984,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:16.1.1":
-  version: 16.1.1
-  resolution: "next@npm:16.1.1"
+"next@npm:16.1.2":
+  version: 16.1.2
+  resolution: "next@npm:16.1.2"
   dependencies:
-    "@next/env": "npm:16.1.1"
-    "@next/swc-darwin-arm64": "npm:16.1.1"
-    "@next/swc-darwin-x64": "npm:16.1.1"
-    "@next/swc-linux-arm64-gnu": "npm:16.1.1"
-    "@next/swc-linux-arm64-musl": "npm:16.1.1"
-    "@next/swc-linux-x64-gnu": "npm:16.1.1"
-    "@next/swc-linux-x64-musl": "npm:16.1.1"
-    "@next/swc-win32-arm64-msvc": "npm:16.1.1"
-    "@next/swc-win32-x64-msvc": "npm:16.1.1"
+    "@next/env": "npm:16.1.2"
+    "@next/swc-darwin-arm64": "npm:16.1.2"
+    "@next/swc-darwin-x64": "npm:16.1.2"
+    "@next/swc-linux-arm64-gnu": "npm:16.1.2"
+    "@next/swc-linux-arm64-musl": "npm:16.1.2"
+    "@next/swc-linux-x64-gnu": "npm:16.1.2"
+    "@next/swc-linux-x64-musl": "npm:16.1.2"
+    "@next/swc-win32-arm64-msvc": "npm:16.1.2"
+    "@next/swc-win32-x64-msvc": "npm:16.1.2"
     "@swc/helpers": "npm:0.5.15"
     baseline-browser-mapping: "npm:^2.8.3"
     caniuse-lite: "npm:^1.0.30001579"
@@ -3040,7 +3040,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10c0/ddc3050653cd9c0ffa351c09d953d11bcb9d1638aeb6d173cbda1063e6b7c658b2e5381f9c023f3887cb2652e6cdb1fd439b8a736ecb24683f4681b15ed007e5
+  checksum: 10c0/9e6737d65a373c7fbea8cfef91408dce0147f1c60462d3a6838410513ec205d63d1f8075a02a5035010538f16d6f3dde0b24c3dd0f72c778a54c8e616d8c47ee
   languageName: node
   linkType: hard
 
@@ -3176,12 +3176,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.7.4":
-  version: 3.7.4
-  resolution: "prettier@npm:3.7.4"
+"prettier@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "prettier@npm:3.8.0"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/9675d2cd08eacb1faf1d1a2dbfe24bfab6a912b059fc9defdb380a408893d88213e794a40a2700bd29b140eb3172e0b07c852853f6e22f16f3374659a1a13389
+  checksum: 10c0/8926e9c9941a293b76c2d799089d038e9f6d84fb37702fc370bedd03b3c70d7fcf507e2e3c4f151f222d81820a3b74cac5e692c955cfafe34dd0d02616ce8327
   languageName: node
   linkType: hard
 
