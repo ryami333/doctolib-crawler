@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  serverExternalPackages: ["bull"],
   typescript: {
     /**
      * Typechecking and building will be done in separate steps in the build
