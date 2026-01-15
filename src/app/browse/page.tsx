@@ -17,11 +17,7 @@ export default async function Page() {
         .toSorted((a, b) => a.localeCompare(b))
         .map((query, index) => (
           <ListItem key={index}>
-            <Anchor
-              href={`https://www.kleinanzeigen.de/s-berlin/${query}/k0l3331`}
-            >
-              {query}
-            </Anchor>
+            <Anchor href={query}>{query}</Anchor>
           </ListItem>
         ))}
     </List>
