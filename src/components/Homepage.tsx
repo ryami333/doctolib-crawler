@@ -25,7 +25,7 @@ export const Homepage = ({ currentValue }: { currentValue: string }) => {
         } catch (e) {
           notifications.show({
             title: "Error",
-            message: "This query could not be submitted",
+            message: "Changes could not be submitted.",
             color: "red",
           });
           console.error(e);
@@ -36,9 +36,7 @@ export const Homepage = ({ currentValue }: { currentValue: string }) => {
 
   return (
     <Stack>
-      <Text>
-        Please use lower-case alphanumeric queries, separated by newlines.
-      </Text>
+      <Text>Please use fully qualified URLs, separated by newlines.</Text>
       <form
         onSubmit={onSubmit}
         style={{
