@@ -1,12 +1,12 @@
 services:
-  redis:
+  valkey:
     volumes:
-      - ./redis-data:/data
-    image: redis:8-alpine
+      - ./valkey-data:/data
+    image: valkey/valkey:9-alpine
     networks:
       - kc-internal
     healthcheck:
-      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      test: ["CMD", "valkey-cli", "--raw", "incr", "ping"]
   worker:
     build:
       context: .
@@ -20,7 +20,7 @@ services:
     networks:
       - kc-internal
     depends_on:
-      - redis
+      - valkey
   frontend:
     build:
       context: .
@@ -36,7 +36,7 @@ services:
     networks:
       - kc-internal
     depends_on:
-      - redis
+      - valkey
 secrets:
   GMAIL_PASS:
     file: ./secrets/GMAIL_PASS
