@@ -3,7 +3,7 @@
   "display": "Node 22",
   "_version": "22.0.0",
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["es2023", "dom"],
     "allowJs": true,
     "checkJs": true,
@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/**/*",
     "lib/**/*",
-    "next.config.mjs"
+    "next.config.mjs",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules", ".next"]
 }
