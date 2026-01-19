@@ -30,7 +30,7 @@
   },
   "type": "module",
   "engines": {
-    "node": "^22.21.1"
+    "node": "^24.13.0"
   },
   "scripts": {
     "dev": "docker compose -f compose.yaml -f compose.dev.yaml up --remove-orphans --build"
