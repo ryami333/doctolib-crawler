@@ -1,14 +1,22 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Node 22",
-  "_version": "22.0.0",
+  "display": "Node 24",
+  "_version": "24.0.0",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es2023", "dom"],
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Error",
+      "ESNext.Iterator",
+      "ESNext.Promise",
+      "dom"
+    ],
     "allowJs": true,
     "checkJs": true,
     "module": "preserve",
-    "target": "es2022",
+    "target": "es2024",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
