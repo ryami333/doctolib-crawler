@@ -15,7 +15,11 @@ const schema = z.object({
 });
 
 export const submitQueryAction = createSafeAction(schema, async ({ query }) => {
-  z.url().array().parse(query.split("\n"));
+  const urlArrayValidationResult = z.url().array().safeParse(query.split("\n"));
+
+  if (!urlArrayValidationResult) {
+    throw new Error("Validation error");
+  }
 
   const redisClient = await getRedisClient();
 
