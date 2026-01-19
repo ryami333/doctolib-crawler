@@ -11,17 +11,12 @@ const schema = z.object({
     .string()
     .trim()
     .nonempty()
-    /**
-     * \u00e4 -> ä
-     * \u00f6 -> ö
-     * \u00fc -> ü
-     * \u00df -> ß
-     */
-    .regex(/^[a-z0-9\u00e4\u00f6\u00fc\u00df\r\n-]+$/) // alphanumeric. newlines, ü, ä and ö only
     .transform((val) => val.replace(/\r\n/g, "\n")), // normalize CRLF to LF)
 });
 
 export const submitQueryAction = createSafeAction(schema, async ({ query }) => {
+  z.url().array().parse(query.split("\n"));
+
   const redisClient = await getRedisClient();
 
   await redisClient.set(REDIS_QUERY_KEY, query);
