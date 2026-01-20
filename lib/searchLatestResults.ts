@@ -5,6 +5,7 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
   const page = await browser.newPage();
 
   try {
+    await page.setViewport({ width: 430, height: 932 }); // iPhone 14 Pro Max viewport.
     await page.goto(query, { waitUntil: "networkidle2" });
     await page.waitForSelector(
       "#srchrslt-adtable, #saved-search-empty-result",
