@@ -26,20 +26,8 @@
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "erasableSyntaxOnly": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "erasableSyntaxOnly": true
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "src/**/*",
-    "lib/**/*",
-    "next.config.mjs",
-    ".next/dev/types/**/*.ts"
-  ],
+  "include": ["src/**/*", "lib/**/*"],
   "exclude": ["node_modules", ".next"]
 }
