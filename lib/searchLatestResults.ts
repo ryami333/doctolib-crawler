@@ -12,12 +12,9 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
       { timeout: 15000 },
     );
 
-    const hasNoAppointmentsHeader = await page.$$eval("h1", (headers) =>
-      headers.some((header) =>
-        header.textContent?.includes(
-          "Es ist momentan leider nicht möglich, diesen Termin online zu buchen.",
-        ),
-      ),
+    const hasNoAppointmentsHeader = await page.$eval(
+      "[data-design-system-component=EmptyState]",
+      (element) => !!element,
     );
     if (hasNoAppointmentsHeader) {
       console.log(`No appointments available for ${query}`);
