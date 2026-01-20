@@ -20,10 +20,10 @@ export const env = createEnv({
   },
 
   client: {
-    NEXT_PUBLIC_BASE_URL: z.url(),
+    VITE_BASE_URL: z.url(),
   },
 
-  clientPrefix: "NEXT_PUBLIC_",
+  clientPrefix: "VITE_",
 
   /**
    * What object holds the environment variables at runtime. This is usually
@@ -36,7 +36,7 @@ export const env = createEnv({
     OAUTH_CLIENT_SECRET_FILE: process.env.OAUTH_CLIENT_SECRET_FILE,
     OAUTH_ISSUER: process.env.OAUTH_ISSUER,
     BETTER_AUTH_TRUSTED_ORIGINS: process.env.BETTER_AUTH_TRUSTED_ORIGINS,
-    NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+    VITE_BASE_URL: process.env.VITE_BASE_URL,
   },
 
   /**
