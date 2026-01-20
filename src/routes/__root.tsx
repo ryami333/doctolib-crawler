@@ -5,7 +5,14 @@ import {
   createRootRoute,
   HeadContent,
   Scripts,
+  redirect,
 } from "@tanstack/react-router";
+import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
+import { MantineProvider } from "@mantine/core";
+import { App } from "../components/App";
+import { Notifications } from "@mantine/notifications";
+import { authClient } from "../helpers/authClient";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -18,11 +25,23 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Doctolib Crawler",
       },
     ],
   }),
   component: RootComponent,
+  beforeLoad: async (context) => {
+    const session = await authClient.getSession();
+
+    const signInObj = await authClient.signIn.social({
+      provider: "pocket-id",
+      callbackURL: context.location.href,
+    });
+
+    if (!session) {
+      throw redirect({ to: signInObj.data?.url });
+    }
+  },
 });
 
 function RootComponent() {
@@ -34,13 +53,18 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+  const colorScheme = "dark" as const;
+
   return (
-    <html>
+    <html data-mantine-color-scheme={colorScheme}>
       <head>
         <HeadContent />
       </head>
       <body>
-        {children}
+        <MantineProvider forceColorScheme={colorScheme}>
+          <Notifications />
+          <App>{children}</App>
+        </MantineProvider>
         <Scripts />
       </body>
     </html>
