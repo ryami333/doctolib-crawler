@@ -28,37 +28,22 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
       return [];
     }
 
-    const results = await page.$$eval(
-      "#srchrslt-adtable article.aditem",
-      (adElements) =>
-        adElements
-          .filter(
-            (adElement) =>
-              !adElement.querySelector(".badge-hint-pro-small-srp"),
-          )
-          .map((adElement) => {
-            /**
-             * I have historically had problems with nested selectors like:
-             * `querySelector(".foo h2 a")`
-             */
-            const linkElement = adElement
-              .querySelector(".aditem-main--middle")
-              ?.querySelector("h2")
-              ?.querySelector("a");
+    const resultsCards = await page.$$(
+      "[data-design-system-component=CardCollapsible]",
+    );
 
-            return {
-              id: adElement.getAttribute("data-adid"),
-              href: adElement.getAttribute("data-href"),
-              heading: linkElement?.textContent?.trim(),
-              description: adElement
-                .querySelector(".aditem-main--middle p")
-                ?.innerHTML.trim(),
-              price: adElement
-                .querySelector(".aditem-main--middle--price-shipping--price")
-                ?.innerHTML.trim(),
-              markup: adElement.outerHTML,
-            };
-          }),
+    const results = await Promise.all(
+      resultsCards.map(async (resultsCard) => {
+        const dateHeadingElement = await resultsCard.$("h2");
+        const dateString = await dateHeadingElement?.evaluate(
+          (element) => element.textContent,
+        );
+        return {
+          id: dateString,
+          date: dateString,
+          href: query,
+        };
+      }),
     );
 
     return results;
