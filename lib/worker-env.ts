@@ -4,9 +4,23 @@ import { z } from "zod";
 export const env = createEnv({
   server: {
     GMAIL_USER: z.string().nonempty(),
+    /**
+     * Generate at:
+     * https://myaccount.google.com/apppasswords
+     */
     GMAIL_PASS_FILE: z.string().nonempty(),
     NODEMAILER_FROM_ADDRESS: z.string().nonempty(),
     NODEMAILER_TO_ADDRESS: z.string().nonempty(),
+    PUPPETEER_HOST: z.string().nonempty(),
+    PUPPETEER_PORT: z.string().nonempty(),
+    /**
+     * Generate with:
+     *
+     * ```
+     * openssl rand -hex 32
+     * ```
+     */
+    PUPPETEER_TOKEN_FILE: z.string().nonempty(),
   },
 
   /**
