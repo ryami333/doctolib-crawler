@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: yarn start
+    command: yarn vite
     env_file: .env
     environment:
       AUTH_SECRET_FILE: /run/secrets/AUTH_SECRET
