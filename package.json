@@ -22,7 +22,6 @@
     "better-auth": "^1.4.16",
     "bull": "^4.16.5",
     "dotenv": "^17.2.3",
-    "next": "16.1.2",
     "nodemailer": "^7.0.12",
     "prettier": "^3.8.0",
     "puppeteer": "^24.36.0",
