@@ -29,7 +29,7 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  component: RootComponent,
+  component: RootDocument,
   beforeLoad: async (context) => {
     const session = await authClient.getSession();
 
@@ -44,15 +44,7 @@ export const Route = createRootRoute({
   },
 });
 
-function RootComponent() {
-  return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  );
-}
-
-function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+function RootDocument() {
   const colorScheme = "dark" as const;
 
   return (
@@ -63,7 +55,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       <body>
         <MantineProvider forceColorScheme={colorScheme}>
           <Notifications />
-          <App>{children}</App>
+          <App>
+            <Outlet />
+          </App>
         </MantineProvider>
         <Scripts />
       </body>
