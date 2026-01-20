@@ -2571,7 +2571,7 @@ __metadata:
     next: "npm:16.1.2"
     nodemailer: "npm:^7.0.12"
     prettier: "npm:^3.8.0"
-    puppeteer-core: "npm:^24.22.0"
+    puppeteer-core: "npm:^24.35.0"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
     redis: "npm:^5.10.0"
@@ -3627,7 +3627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^24.22.0":
+"puppeteer-core@npm:^24.35.0":
   version: 24.35.0
   resolution: "puppeteer-core@npm:24.35.0"
   dependencies:
