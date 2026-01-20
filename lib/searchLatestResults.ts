@@ -24,18 +24,6 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
       return [];
     }
 
-    /**
-     * The #saved-search-empty-result element contains a message like "Es wurden
-     * leider keine Ergebnisse für ____". If we come across this, we should bail
-     * out because the ads listed on the page will be suggestions, not actual
-     * search matches.
-     */
-    const hasEmptyResults = await page.$("#saved-search-empty-result");
-    if (hasEmptyResults) {
-      console.log(`No results for ${query}`);
-      return [];
-    }
-
     const results = await page.$$eval(
       "#srchrslt-adtable article.aditem",
       (adElements) =>
