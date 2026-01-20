@@ -4,7 +4,7 @@ services:
       - ./data/valkey:/data
     image: valkey/valkey:9-alpine
     networks:
-      - kc-internal
+      - dc-internal
     healthcheck:
       test: ["CMD", "valkey-cli", "--raw", "incr", "ping"]
   worker:
@@ -18,7 +18,7 @@ services:
     secrets:
       - GMAIL_PASS
     networks:
-      - kc-internal
+      - dc-internal
     depends_on:
       - valkey
   frontend:
@@ -34,7 +34,7 @@ services:
       - AUTH_SECRET
       - OAUTH_CLIENT_SECRET
     networks:
-      - kc-internal
+      - dc-internal
     depends_on:
       - valkey
 secrets:
@@ -45,5 +45,5 @@ secrets:
   OAUTH_CLIENT_SECRET:
     file: ./secrets/OAUTH_CLIENT_SECRET
 networks:
-  kc-internal:
+  dc-internal:
     driver: bridge
