@@ -6,7 +6,14 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
 
   try {
     await page.setViewport({ width: 430, height: 932 }); // iPhone 14 Pro Max viewport.
-    await page.goto(query, { waitUntil: "networkidle2" });
+    await page.goto(query, {
+      /**
+       * Waiting for network-idle is probably sensible in this case because it's
+       * an SPA – if the appointment-checking happens client-side via some API
+       * requests, then best to let everything resolve.
+       */
+      waitUntil: "networkidle2",
+    });
     await page.waitForSelector(
       "main", // Seems to be a SPA, and the SSR content does not include this `main` element, it's only appended after the application has rendered.
       { timeout: 15000 },
