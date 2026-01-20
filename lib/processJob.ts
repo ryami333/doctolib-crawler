@@ -22,20 +22,15 @@ export const processJob = async function (
         );
 
         if (!alreadyProcessed) {
-          const url = new URL(
-            result.href ?? "/",
-            "https://www.kleinanzeigen.de/",
-          );
+          const url = new URL(result.href);
 
           if (job.data.sendNotifications) {
             notificationQueue.add({
-              subject: `New search result for ${JSON.stringify(query)} – ${JSON.stringify(result.heading)}`,
+              subject: `New appointment available`,
               html: [
                 `<p>New search result found:</p>`,
-                `<p><strong><em>${result.heading}</strong></em></p>`,
-                `<p>${result.description}</p>`,
-                `<p>${result.price}</p>`,
-                `<p>Click <a href="${url.toString()}">here</a> to see the listing.</p>`,
+                `<p><strong><em>${result.date}</strong></em></p>`,
+                `<p>Click <a href="${url.toString()}">here</a> to see the appointment.</p>`,
               ].join("\n"),
             });
           }
