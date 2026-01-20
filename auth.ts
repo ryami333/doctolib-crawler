@@ -9,7 +9,7 @@ export const auth = betterAuth({
   trustedOrigins: env.BETTER_AUTH_TRUSTED_ORIGINS
     ? env.BETTER_AUTH_TRUSTED_ORIGINS.split(",")
     : undefined,
-  baseURL: env.NEXT_PUBLIC_BASE_URL,
+  baseURL: env.VITE_BASE_URL,
   plugins: [
     genericOAuth({
       config: [
