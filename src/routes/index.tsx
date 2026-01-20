@@ -1,48 +1,19 @@
 // src/routes/index.tsx
-import fs from "node:fs";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
-
-const filePath = "count.txt";
-
-async function readCount() {
-  return parseInt(
-    await fs.promises.readFile(filePath, "utf-8").catch(() => "0"),
-  );
-}
-
-const getCount = createServerFn({
-  method: "GET",
-}).handler(() => {
-  return readCount();
-});
-
-const updateCount = createServerFn({ method: "POST" })
-  .inputValidator((d: number) => d)
-  .handler(async ({ data }) => {
-    const count = await readCount();
-    await fs.promises.writeFile(filePath, `${count + data}`);
-  });
+import { createFileRoute } from "@tanstack/react-router";
+import { Homepage } from "../components/Homepage";
+import { getRedisClient } from "../../lib/getRedisClient";
+import { REDIS_QUERY_KEY } from "../../lib/constants";
 
 export const Route = createFileRoute("/")({
-  component: Home,
-  loader: async () => await getCount(),
+  component: async function PageComponent() {
+    const currentValue = Route.useLoaderData();
+
+    return <Homepage currentValue={currentValue ?? ""} />;
+  },
+  loader: async () => {
+    const redisClient = await getRedisClient();
+    const currentValue = await redisClient.get(REDIS_QUERY_KEY);
+
+    return currentValue;
+  },
 });
-
-function Home() {
-  const router = useRouter();
-  const state = Route.useLoaderData();
-
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        updateCount({ data: 1 }).then(() => {
-          router.invalidate();
-        });
-      }}
-    >
-      Add 1 to {state}?
-    </button>
-  );
-}
