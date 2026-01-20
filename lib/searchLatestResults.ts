@@ -8,9 +8,21 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
     await page.setViewport({ width: 430, height: 932 }); // iPhone 14 Pro Max viewport.
     await page.goto(query, { waitUntil: "networkidle2" });
     await page.waitForSelector(
-      "#srchrslt-adtable, #saved-search-empty-result",
+      "main", // Seems to be a SPA, and the SSR content does not include this `main` element, it's only appended after the application has rendered.
       { timeout: 15000 },
     );
+
+    const hasNoAppointmentsHeader = await page.$$eval("h1", (headers) =>
+      headers.some((header) =>
+        header.textContent?.includes(
+          "Es ist momentan leider nicht möglich, diesen Termin online zu buchen.",
+        ),
+      ),
+    );
+    if (hasNoAppointmentsHeader) {
+      console.log(`No appointments available for ${query}`);
+      return [];
+    }
 
     /**
      * The #saved-search-empty-result element contains a message like "Es wurden
