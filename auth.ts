@@ -1,5 +1,5 @@
 import { betterAuth } from "better-auth";
-import { nextCookies } from "better-auth/next-js";
+import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { env } from "./src/helpers/frontend-env";
 import { genericOAuth } from "better-auth/plugins";
 import fs from "node:fs";
@@ -27,6 +27,6 @@ export const auth = betterAuth({
     /**
      * ⚠️ Needs to be last plugin in the array:
      */
-    nextCookies(),
+    tanstackStartCookies(),
   ],
 });
