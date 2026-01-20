@@ -7,6 +7,14 @@ services:
       - dc-internal
     healthcheck:
       test: ["CMD", "valkey-cli", "--raw", "incr", "ping"]
+  puppeteer:
+    image: browserless/chrome:latest
+    environment:
+      TOKEN_FILE: /run/secrets/PUPPETEER_TOKEN
+    secrets:
+      - PUPPETEER_TOKEN
+    networks:
+      - dc-internal
   worker:
     build:
       context: .
@@ -15,12 +23,17 @@ services:
     env_file: .env
     environment:
       GMAIL_PASS_FILE: /run/secrets/GMAIL_PASS
+      PUPPETEER_HOST: puppeteer
+      PUPPETEER_PORT: 3000
+      PUPPETEER_TOKEN_FILE: /run/secrets/PUPPETEER_TOKEN
     secrets:
       - GMAIL_PASS
+      - PUPPETEER_TOKEN
     networks:
       - dc-internal
     depends_on:
       - valkey
+      - puppeteer
   frontend:
     build:
       context: .
@@ -40,6 +53,8 @@ services:
 secrets:
   GMAIL_PASS:
     file: ./secrets/GMAIL_PASS
+  PUPPETEER_TOKEN:
+    file: ./secrets/PUPPETEER_TOKEN
   AUTH_SECRET:
     file: ./secrets/AUTH_SECRET
   OAUTH_CLIENT_SECRET:
