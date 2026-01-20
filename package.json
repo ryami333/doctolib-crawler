@@ -19,7 +19,7 @@
     "@tabler/icons-react": "^3.36.1",
     "@tanstack/react-router": "^1.153.2",
     "@tanstack/react-start": "^1.154.0",
-    "better-auth": "^1.4.13",
+    "better-auth": "^1.4.16",
     "bull": "^4.16.5",
     "dotenv": "^17.2.3",
     "next": "16.1.2",
