@@ -28,6 +28,6 @@
     "isolatedModules": true,
     "erasableSyntaxOnly": true
   },
-  "include": ["src/**/*", "lib/**/*"],
+  "include": ["src/**/*", "lib/**/*", "bin/**/*"],
   "exclude": ["node_modules", ".next"]
 }
