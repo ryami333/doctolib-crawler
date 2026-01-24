@@ -18,6 +18,7 @@ export const serverEnv = createEnv({
     OAUTH_ISSUER: z.string().nonempty(),
     BETTER_AUTH_TRUSTED_ORIGINS: z.string().nonempty(),
     VALKEY_HOST: z.string().nonempty(),
+    BASE_URL: z.url().nonempty(),
   },
 
   /**
