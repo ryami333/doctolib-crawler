@@ -29,5 +29,5 @@
     "erasableSyntaxOnly": true
   },
   "include": ["src/**/*", "lib/**/*", "bin/**/*"],
-  "exclude": ["node_modules", ".next"]
+  "exclude": ["node_modules"]
 }
