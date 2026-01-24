@@ -3,7 +3,7 @@ import { Homepage } from "../components/Homepage";
 import { getCurrentQueryValue } from "../helpers/getCurrentQueryValue";
 
 export const Route = createFileRoute("/")({
-  component: async function PageComponent() {
+  component: function PageComponent() {
     const currentValue = Route.useLoaderData();
 
     return <Homepage currentValue={currentValue ?? ""} />;

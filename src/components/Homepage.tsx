@@ -1,5 +1,3 @@
-"use client";
-
 import { useTransition } from "react";
 import { submitQueryAction } from "../helpers/submitQueryAction";
 import { Button, Textarea, Text, Stack } from "@mantine/core";
