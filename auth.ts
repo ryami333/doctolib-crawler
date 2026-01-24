@@ -21,6 +21,7 @@ export const auth = betterAuth({
             serverEnv.OAUTH_CLIENT_SECRET_FILE,
             "utf8",
           ),
+          scopes: ["profile", "openid", "email"],
 
           discoveryUrl: `${serverEnv.OAUTH_ISSUER}/.well-known/openid-configuration`,
           // ... other config options
