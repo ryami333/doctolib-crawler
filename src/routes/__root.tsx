@@ -4,14 +4,12 @@ import {
   createRootRoute,
   HeadContent,
   Scripts,
-  redirect,
 } from "@tanstack/react-router";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import { MantineProvider } from "@mantine/core";
 import { App } from "../components/App";
 import { Notifications } from "@mantine/notifications";
-import { authClient } from "../helpers/authClient";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -30,18 +28,6 @@ export const Route = createRootRoute({
   }),
 
   component: RootDocument,
-  beforeLoad: async (context) => {
-    const session = await authClient.getSession();
-
-    const signInObj = await authClient.signIn.social({
-      provider: "pocket-id",
-      callbackURL: context.location.href,
-    });
-
-    if (!session) {
-      throw redirect({ to: signInObj.data?.url });
-    }
-  },
 });
 
 function RootDocument() {

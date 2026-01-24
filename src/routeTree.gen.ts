@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as protectedIndexRouteImport } from './routes/(protected)/index'
+import { Route as protectedLayoutRouteImport } from './routes/(protected)/_layout'
 import { Route as protectedBrowseIndexRouteImport } from './routes/(protected)/browse/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
@@ -22,6 +23,10 @@ const LoginIndexRoute = LoginIndexRouteImport.update({
 const protectedIndexRoute = protectedIndexRouteImport.update({
   id: '/(protected)/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const protectedLayoutRoute = protectedLayoutRouteImport.update({
+  id: '/(protected)/_layout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const protectedBrowseIndexRoute = protectedBrowseIndexRouteImport.update({
@@ -49,6 +54,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/(protected)/_layout': typeof protectedLayoutRoute
   '/(protected)/': typeof protectedIndexRoute
   '/login/': typeof LoginIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
@@ -61,6 +67,7 @@ export interface FileRouteTypes {
   to: '/' | '/login' | '/api/auth/$' | '/browse'
   id:
     | '__root__'
+    | '/(protected)/_layout'
     | '/(protected)/'
     | '/login/'
     | '/api/auth/$'
@@ -68,6 +75,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  protectedLayoutRoute: typeof protectedLayoutRoute
   protectedIndexRoute: typeof protectedIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
@@ -90,6 +98,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof protectedIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(protected)/_layout': {
+      id: '/(protected)/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof protectedLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(protected)/browse/': {
       id: '/(protected)/browse/'
       path: '/browse'
@@ -108,6 +123,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  protectedLayoutRoute: protectedLayoutRoute,
   protectedIndexRoute: protectedIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
