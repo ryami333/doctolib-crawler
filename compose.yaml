@@ -37,6 +37,7 @@ services:
     environment:
       AUTH_SECRET_FILE: /run/secrets/AUTH_SECRET
       OAUTH_CLIENT_SECRET_FILE: /run/secrets/OAUTH_CLIENT_SECRET
+      VALKEY_HOST: valkey
     secrets:
       - AUTH_SECRET
       - OAUTH_CLIENT_SECRET
