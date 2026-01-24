@@ -25,8 +25,6 @@ COPY . .
 
 RUN yarn vite build
 
-ENV TZ=Europe/Berlin
-
 RUN chown -R 1000:1000 /app
 USER 1000:1000
 

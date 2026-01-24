@@ -4,6 +4,8 @@ services:
   valkey:
     volumes:
       - ./data/valkey:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     image: valkey/valkey:9-alpine
     networks:
       - dc-internal
@@ -23,6 +25,9 @@ services:
       - dc-internal
     depends_on:
       - valkey
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
   frontend:
     build:
       context: .
@@ -39,6 +44,9 @@ services:
       - dc-internal
     depends_on:
       - valkey
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
 secrets:
   GMAIL_PASS:
     file: ./secrets/GMAIL_PASS
