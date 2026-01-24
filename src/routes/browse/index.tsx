@@ -3,7 +3,7 @@ import { Anchor, List, ListItem } from "@mantine/core";
 import { getCurrentQueryValue } from "../../helpers/getCurrentQueryValue";
 
 export const Route = createFileRoute("/browse/")({
-  component: async function PageComponent() {
+  component: function PageComponent() {
     const currentValue = Route.useLoaderData() ?? "";
 
     return (
