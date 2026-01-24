@@ -3,14 +3,13 @@ import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { genericOAuth } from "better-auth/plugins";
 import fs from "node:fs";
 import { serverEnv } from "./src/helpers/serverEnv";
-import { clientEnv } from "./src/helpers/clientEnv";
 
 export const auth = betterAuth({
   secret: fs.readFileSync(serverEnv.AUTH_SECRET_FILE, "utf8"),
   trustedOrigins: serverEnv.BETTER_AUTH_TRUSTED_ORIGINS
     ? serverEnv.BETTER_AUTH_TRUSTED_ORIGINS.split(",")
     : undefined,
-  baseURL: clientEnv.VITE_BASE_URL,
+  baseURL: serverEnv.BASE_URL,
   plugins: [
     genericOAuth({
       config: [
