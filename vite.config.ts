@@ -8,6 +8,8 @@ import { nitro } from "nitro/vite";
 export default defineConfig({
   server: {
     port: 3000,
+    strictPort: true,
+    host: true, // equivalent to 0.0.0.0
   },
   plugins: [
     tanstackStart({}),
