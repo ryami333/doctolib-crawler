@@ -41,9 +41,7 @@ function RootDocument() {
       <body>
         <MantineProvider forceColorScheme={colorScheme}>
           <Notifications />
-          <App>
-            <Outlet />
-          </App>
+          <Outlet />
         </MantineProvider>
         <Scripts />
       </body>

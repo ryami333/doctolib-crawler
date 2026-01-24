@@ -1,8 +1,8 @@
 import { Button } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
-import { authClient } from "../../helpers/authClient";
+import { authClient } from "../helpers/authClient";
 
-export const Route = createFileRoute("/login/")({
+export const Route = createFileRoute("/login")({
   component: function PageComponent() {
     return (
       <Button
