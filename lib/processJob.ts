@@ -12,7 +12,7 @@ export const processJob = async function (
   const queries = (await client.get(REDIS_QUERY_KEY))?.trim().split("\n") ?? [];
 
   for (const query of queries) {
-    const results = await searchLatestResults({ query });
+    const results = await searchLatestResults({ query, headless: true });
 
     for (const result of results) {
       if (result.id) {
