@@ -21,7 +21,7 @@
     "next": "16.1.2",
     "nodemailer": "^7.0.12",
     "prettier": "^3.8.0",
-    "puppeteer-core": "^24.35.0",
+    "puppeteer": "^24.36.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "redis": "^5.10.0",
