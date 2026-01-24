@@ -9,93 +9,84 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginIndexRouteImport } from './routes/login/index'
-import { Route as protectedIndexRouteImport } from './routes/(protected)/index'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as protectedLayoutRouteImport } from './routes/(protected)/_layout'
-import { Route as protectedBrowseIndexRouteImport } from './routes/(protected)/browse/index'
+import { Route as protectedLayoutIndexRouteImport } from './routes/(protected)/_layout/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as protectedLayoutBrowseRouteImport } from './routes/(protected)/_layout/browse'
 
-const LoginIndexRoute = LoginIndexRouteImport.update({
-  id: '/login/',
-  path: '/login/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const protectedIndexRoute = protectedIndexRouteImport.update({
-  id: '/(protected)/',
-  path: '/',
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const protectedLayoutRoute = protectedLayoutRouteImport.update({
   id: '/(protected)/_layout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const protectedBrowseIndexRoute = protectedBrowseIndexRouteImport.update({
-  id: '/(protected)/browse/',
-  path: '/browse/',
-  getParentRoute: () => rootRouteImport,
+const protectedLayoutIndexRoute = protectedLayoutIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => protectedLayoutRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const protectedLayoutBrowseRoute = protectedLayoutBrowseRouteImport.update({
+  id: '/browse',
+  path: '/browse',
+  getParentRoute: () => protectedLayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof protectedIndexRoute
-  '/login/': typeof LoginIndexRoute
+  '/login': typeof LoginRoute
+  '/browse': typeof protectedLayoutBrowseRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/browse/': typeof protectedBrowseIndexRoute
+  '/': typeof protectedLayoutIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof protectedIndexRoute
-  '/login': typeof LoginIndexRoute
+  '/login': typeof LoginRoute
+  '/browse': typeof protectedLayoutBrowseRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/browse': typeof protectedBrowseIndexRoute
+  '/': typeof protectedLayoutIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/(protected)/_layout': typeof protectedLayoutRoute
-  '/(protected)/': typeof protectedIndexRoute
-  '/login/': typeof LoginIndexRoute
+  '/login': typeof LoginRoute
+  '/(protected)/_layout': typeof protectedLayoutRouteWithChildren
+  '/(protected)/_layout/browse': typeof protectedLayoutBrowseRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/(protected)/browse/': typeof protectedBrowseIndexRoute
+  '/(protected)/_layout/': typeof protectedLayoutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login/' | '/api/auth/$' | '/browse/'
+  fullPaths: '/login' | '/browse' | '/api/auth/$' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/api/auth/$' | '/browse'
+  to: '/login' | '/browse' | '/api/auth/$' | '/'
   id:
     | '__root__'
+    | '/login'
     | '/(protected)/_layout'
-    | '/(protected)/'
-    | '/login/'
+    | '/(protected)/_layout/browse'
     | '/api/auth/$'
-    | '/(protected)/browse/'
+    | '/(protected)/_layout/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  protectedLayoutRoute: typeof protectedLayoutRoute
-  protectedIndexRoute: typeof protectedIndexRoute
-  LoginIndexRoute: typeof LoginIndexRoute
+  LoginRoute: typeof LoginRoute
+  protectedLayoutRoute: typeof protectedLayoutRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
-  protectedBrowseIndexRoute: typeof protectedBrowseIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/login/': {
-      id: '/login/'
+    '/login': {
+      id: '/login'
       path: '/login'
-      fullPath: '/login/'
-      preLoaderRoute: typeof LoginIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(protected)/': {
-      id: '/(protected)/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof protectedIndexRouteImport
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(protected)/_layout': {
@@ -105,12 +96,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof protectedLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(protected)/browse/': {
-      id: '/(protected)/browse/'
-      path: '/browse'
-      fullPath: '/browse/'
-      preLoaderRoute: typeof protectedBrowseIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/(protected)/_layout/': {
+      id: '/(protected)/_layout/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof protectedLayoutIndexRouteImport
+      parentRoute: typeof protectedLayoutRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -119,15 +110,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(protected)/_layout/browse': {
+      id: '/(protected)/_layout/browse'
+      path: '/browse'
+      fullPath: '/browse'
+      preLoaderRoute: typeof protectedLayoutBrowseRouteImport
+      parentRoute: typeof protectedLayoutRoute
+    }
   }
 }
 
+interface protectedLayoutRouteChildren {
+  protectedLayoutBrowseRoute: typeof protectedLayoutBrowseRoute
+  protectedLayoutIndexRoute: typeof protectedLayoutIndexRoute
+}
+
+const protectedLayoutRouteChildren: protectedLayoutRouteChildren = {
+  protectedLayoutBrowseRoute: protectedLayoutBrowseRoute,
+  protectedLayoutIndexRoute: protectedLayoutIndexRoute,
+}
+
+const protectedLayoutRouteWithChildren = protectedLayoutRoute._addFileChildren(
+  protectedLayoutRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  protectedLayoutRoute: protectedLayoutRoute,
-  protectedIndexRoute: protectedIndexRoute,
-  LoginIndexRoute: LoginIndexRoute,
+  LoginRoute: LoginRoute,
+  protectedLayoutRoute: protectedLayoutRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-  protectedBrowseIndexRoute: protectedBrowseIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
