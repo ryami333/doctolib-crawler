@@ -5,6 +5,7 @@ import { REDIS_QUERY_KEY } from "../../lib/constants";
 // import { crawlerQueue } from "../../lib/crawlerQueue";
 import { getRedisClient } from "./getRedisClient";
 import { createServerFn } from "@tanstack/react-start";
+import { authMiddleware } from "./authMiddleware";
 
 const schema = z.object({
   query: z
@@ -15,6 +16,7 @@ const schema = z.object({
 });
 
 export const submitQueryAction = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
   .inputValidator(schema)
   .handler(async ({ data: { query } }) => {
     const urlArrayValidationResult = z
