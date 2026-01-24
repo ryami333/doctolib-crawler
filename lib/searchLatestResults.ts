@@ -31,32 +31,41 @@ export const searchLatestResults = async ({
       { timeout: 15000 },
     );
 
-    const hasNoAppointmentsHeader = await page.$eval(
-      "[data-design-system-component=EmptyState]",
-      (element) => !!element,
-    );
-    if (hasNoAppointmentsHeader) {
-      console.log(`No appointments available for ${query}`);
-      return [];
-    }
+    const abortController = new AbortController();
 
-    const resultsCards = await page.$$(
-      "[data-design-system-component=CardCollapsible]",
-    );
+    // Using `Promise.any`` instead of `Promise.race` because `any` forgives rejections (as long as at-least one promise fulfills).
+    const results = await Promise.any([
+      page
+        .waitForSelector("[data-design-system-component=EmptyState]", {
+          timeout: 15000,
+          signal: abortController.signal,
+        })
+        .then(() => []),
+      page
+        .waitForSelector("[data-design-system-component=CardCollapsible]", {
+          timeout: 15000,
+          signal: abortController.signal,
+        })
 
-    const results = await Promise.all(
-      resultsCards.map(async (resultsCard) => {
-        const dateHeadingElement = await resultsCard.$("h2");
-        const dateString = await dateHeadingElement?.evaluate(
-          (element) => element.textContent,
-        );
-        return {
-          id: dateString,
-          date: dateString,
-          href: query,
-        };
-      }),
-    );
+        .then(async () => {
+          const resultsCards = await page.$$(
+            "[data-design-system-component=CardCollapsible]",
+          );
+          return await Promise.all(
+            resultsCards.map(async (resultsCard) => {
+              const dateHeadingElement = await resultsCard.$("h2");
+              const dateString = await dateHeadingElement?.evaluate(
+                (element) => element.textContent,
+              );
+              return {
+                id: dateString,
+                date: dateString,
+                href: query,
+              };
+            }),
+          );
+        }),
+    ]).finally(() => abortController.abort());
 
     return results;
   } finally {
