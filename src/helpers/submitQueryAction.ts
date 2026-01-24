@@ -1,10 +1,10 @@
 "use server";
 
 import { z } from "zod";
-import { createSafeAction } from "./createSafeAction";
 import { REDIS_QUERY_KEY } from "../../lib/constants";
-import { crawlerQueue } from "../../lib/crawlerQueue";
+// import { crawlerQueue } from "../../lib/crawlerQueue";
 import { getRedisClient } from "./getRedisClient";
+import { createServerFn } from "@tanstack/react-start";
 
 const schema = z.object({
   query: z
@@ -14,29 +14,34 @@ const schema = z.object({
     .transform((val) => val.replace(/\r\n/g, "\n")), // normalize CRLF to LF)
 });
 
-export const submitQueryAction = createSafeAction(schema, async ({ query }) => {
-  const urlArrayValidationResult = z.url().array().safeParse(query.split("\n"));
+export const submitQueryAction = createServerFn({ method: "POST" })
+  .inputValidator(schema)
+  .handler(async ({ data: { query } }) => {
+    const urlArrayValidationResult = z
+      .url()
+      .array()
+      .safeParse(query.split("\n"));
 
-  if (!urlArrayValidationResult) {
-    throw new Error("Validation error");
-  }
+    if (!urlArrayValidationResult) {
+      throw new Error("Validation error");
+    }
 
-  const redisClient = await getRedisClient();
+    const redisClient = await getRedisClient();
 
-  await redisClient.set(REDIS_QUERY_KEY, query);
+    await redisClient.set(REDIS_QUERY_KEY, query);
 
-  /**
-   * Set a baseline so that we don't get emailed about all of the _existing_
-   * results.
-   */
-  crawlerQueue.add(
-    { sendNotifications: false },
-    {
-      attempts: 3,
-    },
-  );
+    /**
+     * Set a baseline so that we don't get emailed about all of the _existing_
+     * results.
+     */
+    // crawlerQueue.add(
+    //   { sendNotifications: false },
+    //   {
+    //     attempts: 3,
+    //   },
+    // );
 
-  return {
-    ok: true,
-  };
-});
+    return {
+      ok: true,
+    };
+  });
