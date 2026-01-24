@@ -8,7 +8,7 @@ export const searchLatestResults = async ({
   headless: boolean;
 }) => {
   const browser = await puppeteer.launch({
-    args: ["--disable-cache"],
+    args: ["--disable-cache", "--no-sandbox", "--disable-setuid-sandbox"],
     headless,
     devtools: !headless,
   });
