@@ -9,23 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
-import { Route as BrowseIndexRouteImport } from './routes/browse/index'
+import { Route as protectedIndexRouteImport } from './routes/(protected)/index'
+import { Route as protectedBrowseIndexRouteImport } from './routes/(protected)/browse/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LoginIndexRoute = LoginIndexRouteImport.update({
   id: '/login/',
   path: '/login/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BrowseIndexRoute = BrowseIndexRouteImport.update({
-  id: '/browse/',
+const protectedIndexRoute = protectedIndexRouteImport.update({
+  id: '/(protected)/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const protectedBrowseIndexRoute = protectedBrowseIndexRouteImport.update({
+  id: '/(protected)/browse/',
   path: '/browse/',
   getParentRoute: () => rootRouteImport,
 } as any)
@@ -36,48 +36,46 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/browse/': typeof BrowseIndexRoute
+  '/': typeof protectedIndexRoute
   '/login/': typeof LoginIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/browse/': typeof protectedBrowseIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/browse': typeof BrowseIndexRoute
+  '/': typeof protectedIndexRoute
   '/login': typeof LoginIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/browse': typeof protectedBrowseIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/browse/': typeof BrowseIndexRoute
+  '/(protected)/': typeof protectedIndexRoute
   '/login/': typeof LoginIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/(protected)/browse/': typeof protectedBrowseIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/browse/' | '/login/' | '/api/auth/$'
+  fullPaths: '/' | '/login/' | '/api/auth/$' | '/browse/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/browse' | '/login' | '/api/auth/$'
-  id: '__root__' | '/' | '/browse/' | '/login/' | '/api/auth/$'
+  to: '/' | '/login' | '/api/auth/$' | '/browse'
+  id:
+    | '__root__'
+    | '/(protected)/'
+    | '/login/'
+    | '/api/auth/$'
+    | '/(protected)/browse/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  BrowseIndexRoute: typeof BrowseIndexRoute
+  protectedIndexRoute: typeof protectedIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  protectedBrowseIndexRoute: typeof protectedBrowseIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/login/': {
       id: '/login/'
       path: '/login'
@@ -85,11 +83,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/browse/': {
-      id: '/browse/'
+    '/(protected)/': {
+      id: '/(protected)/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof protectedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(protected)/browse/': {
+      id: '/(protected)/browse/'
       path: '/browse'
       fullPath: '/browse/'
-      preLoaderRoute: typeof BrowseIndexRouteImport
+      preLoaderRoute: typeof protectedBrowseIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -103,10 +108,10 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BrowseIndexRoute: BrowseIndexRoute,
+  protectedIndexRoute: protectedIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  protectedBrowseIndexRoute: protectedBrowseIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

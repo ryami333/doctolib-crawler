@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Anchor, List, ListItem } from "@mantine/core";
-import { getCurrentQueryValue } from "../../helpers/getCurrentQueryValue";
+import { createFileRoute } from "@tanstack/react-router";
+import { getCurrentQueryValue } from "../../../helpers/getCurrentQueryValue";
 
-export const Route = createFileRoute("/browse/")({
+export const Route = createFileRoute("/(protected)/browse/")({
   component: function PageComponent() {
     const currentValue = Route.useLoaderData() ?? "";
 
