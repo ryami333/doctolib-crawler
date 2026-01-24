@@ -4,7 +4,7 @@ import { Anchor, List, ListItem } from "@mantine/core";
 import { getRedisClient } from "../../../lib/getRedisClient";
 import { REDIS_QUERY_KEY } from "../../../lib/constants";
 
-export const Route = createFileRoute("/browse")({
+export const Route = createFileRoute("/browse/")({
   component: async function PageComponent() {
     const currentValue = Route.useLoaderData() ?? "";
 
