@@ -4,20 +4,8 @@ export const searchLatestResults = async ({ query }: { query: string }) => {
   const browser = await puppeteer.launch({ args: ["--disable-cache"] });
   const page = await browser.newPage();
 
-  const pause = () =>
-    page.evaluate(() => {
-      debugger;
-    });
-
-  // Attempt to bypass bot detection.
-  // await page.setUserAgent({
-  //   userAgent: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36`,
-  // });
-
   try {
     await page.setViewport({ width: 430, height: 932 }); // iPhone 14 Pro Max viewport.
-
-    await pause();
 
     await page.goto(query, {
       /**
