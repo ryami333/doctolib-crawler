@@ -2434,7 +2434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-router@npm:1.157.2, @tanstack/react-router@npm:^1.157.2":
+"@tanstack/react-router@npm:1.157.2":
   version: 1.157.2
   resolution: "@tanstack/react-router@npm:1.157.2"
   dependencies:
@@ -2448,6 +2448,23 @@ __metadata:
     react: ">=18.0.0 || >=19.0.0"
     react-dom: ">=18.0.0 || >=19.0.0"
   checksum: 10c0/cbfb2287776414d0a86a71e768e643b66b32472cdf631440881b9b5b36b7df84795a5f7b5c9172809a10e3cbada124744bf780387f1030beccb0880f4f0d8e7e
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-router@npm:^1.157.3":
+  version: 1.157.3
+  resolution: "@tanstack/react-router@npm:1.157.3"
+  dependencies:
+    "@tanstack/history": "npm:1.154.14"
+    "@tanstack/react-store": "npm:^0.8.0"
+    "@tanstack/router-core": "npm:1.157.3"
+    isbot: "npm:^5.1.22"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  peerDependencies:
+    react: ">=18.0.0 || >=19.0.0"
+    react-dom: ">=18.0.0 || >=19.0.0"
+  checksum: 10c0/791d7ae54d1c4585129fe7118742eb924811101ca6b145b45a30e84f9ea8537ca7b6433eacdc2fb40d120fb955267827382642d0def488b7d8759fab305b128e
   languageName: node
   linkType: hard
 
@@ -2528,6 +2545,21 @@ __metadata:
     tiny-invariant: "npm:^1.3.3"
     tiny-warning: "npm:^1.0.3"
   checksum: 10c0/879b3e0b9820d2a5f8fa931aace0949c20e836350554f0fe3e45d252cc3d465f8870af221038bdce2120e2756812dacbea82e2f388999892d54a0437fe06d691
+  languageName: node
+  linkType: hard
+
+"@tanstack/router-core@npm:1.157.3":
+  version: 1.157.3
+  resolution: "@tanstack/router-core@npm:1.157.3"
+  dependencies:
+    "@tanstack/history": "npm:1.154.14"
+    "@tanstack/store": "npm:^0.8.0"
+    cookie-es: "npm:^2.0.0"
+    seroval: "npm:^1.4.2"
+    seroval-plugins: "npm:^1.4.2"
+    tiny-invariant: "npm:^1.3.3"
+    tiny-warning: "npm:^1.0.3"
+  checksum: 10c0/6d911b7eb17157fdd17e01caf6e5a8550229432606db1de496fa808d7b6508481673edf0094be5c89055b7971dc0957b7203d56e9b991c0e0b6521fe80fdb7ed
   languageName: node
   linkType: hard
 
@@ -3671,7 +3703,7 @@ __metadata:
     "@mantine/notifications": "npm:^8.3.13"
     "@t3-oss/env-core": "npm:^0.13.10"
     "@tabler/icons-react": "npm:^3.36.1"
-    "@tanstack/react-router": "npm:^1.157.2"
+    "@tanstack/react-router": "npm:^1.157.3"
     "@tanstack/react-start": "npm:^1.157.2"
     "@types/bull": "npm:^4.10.4"
     "@types/express": "npm:^5.0.6"
