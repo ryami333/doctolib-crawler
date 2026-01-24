@@ -1,7 +1,17 @@
 import puppeteer from "puppeteer";
 
-export const searchLatestResults = async ({ query }: { query: string }) => {
-  const browser = await puppeteer.launch({ args: ["--disable-cache"] });
+export const searchLatestResults = async ({
+  query,
+  headless = true,
+}: {
+  query: string;
+  headless: boolean;
+}) => {
+  const browser = await puppeteer.launch({
+    args: ["--disable-cache"],
+    headless,
+    devtools: !headless,
+  });
   const page = await browser.newPage();
 
   try {
