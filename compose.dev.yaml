@@ -7,7 +7,7 @@ services:
     volumes:
       - ./lib:/app/lib
   frontend:
-    command: yarn vite dev
+    command: yarn start
     volumes:
       - ./src:/app/src
     ports:
