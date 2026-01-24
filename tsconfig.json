@@ -26,6 +26,7 @@
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "erasableSyntaxOnly": true,
     "plugins": [
       {
         "name": "next"
