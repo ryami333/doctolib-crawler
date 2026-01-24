@@ -6,6 +6,14 @@ WORKDIR /app
 
 RUN corepack enable yarn
 
+# Install Chromium for Puppeteer and required system deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    chromium \
+  && rm -rf /var/lib/apt/lists/*
+
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
 # Copy dependency definitions
 COPY package.json .yarnrc.yml yarn.lock ./
 
