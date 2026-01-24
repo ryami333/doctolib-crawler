@@ -1,8 +1,8 @@
 // src/routes/index.tsx
 import { createFileRoute } from "@tanstack/react-router";
 import { Anchor, List, ListItem } from "@mantine/core";
-import { getRedisClient } from "../../../lib/getRedisClient";
 import { REDIS_QUERY_KEY } from "../../../lib/constants";
+import { getRedisClient } from "../../helpers/getRedisClient";
 
 export const Route = createFileRoute("/browse/")({
   component: async function PageComponent() {
