@@ -19,6 +19,7 @@ services:
     env_file: .env
     environment:
       GMAIL_PASS_FILE: /run/secrets/GMAIL_PASS
+      TZ: ${TZ}
     secrets:
       - GMAIL_PASS
     networks:
@@ -38,6 +39,7 @@ services:
       AUTH_SECRET_FILE: /run/secrets/AUTH_SECRET
       OAUTH_CLIENT_SECRET_FILE: /run/secrets/OAUTH_CLIENT_SECRET
       VALKEY_HOST: valkey
+      TZ: ${TZ}
     secrets:
       - AUTH_SECRET
       - OAUTH_CLIENT_SECRET
