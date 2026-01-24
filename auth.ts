@@ -22,11 +22,8 @@ export const auth = betterAuth({
             "utf8",
           ),
           scopes: ["profile", "openid", "email"],
-
           discoveryUrl: `${serverEnv.OAUTH_ISSUER}/.well-known/openid-configuration`,
-          // ... other config options
         },
-        // Add more providers as needed
       ],
     }),
     /**
