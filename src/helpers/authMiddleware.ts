@@ -10,7 +10,7 @@ export const authMiddleware = createMiddleware().server(
     const session = await auth.api.getSession({ headers });
 
     if (!session) {
-      throw !!serverFnMeta ? unauthorized() : redirect({ to: "/login" });
+      throw serverFnMeta ? unauthorized() : redirect({ to: "/login" });
     }
 
     return await next();
