@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import crypto from "node:crypto";
 
 export const searchLatestResults = async ({
   query,
@@ -7,6 +8,7 @@ export const searchLatestResults = async ({
   query: string;
   headless: boolean;
 }) => {
+  const queryHash = crypto.createHash("md5").update(query).digest("hex");
   const browser = await puppeteer.launch({
     args: ["--disable-cache", "--no-sandbox", "--disable-setuid-sandbox"],
     headless,
@@ -65,7 +67,7 @@ export const searchLatestResults = async ({
                 (element) => element.textContent,
               );
               return {
-                id: dateString,
+                id: `${queryHash}-${dateString}`,
                 date: dateString,
                 href: query,
               };
