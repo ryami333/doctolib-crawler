@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Homepage } from "../components/Homepage";
-import { REDIS_QUERY_KEY } from "../../lib/constants";
-import { getRedisClient } from "../helpers/getRedisClient";
+import { getCurrentQueryValue } from "../helpers/getCurrentQueryValue";
 
 export const Route = createFileRoute("/")({
   component: async function PageComponent() {
@@ -9,10 +8,5 @@ export const Route = createFileRoute("/")({
 
     return <Homepage currentValue={currentValue ?? ""} />;
   },
-  loader: async () => {
-    const redisClient = await getRedisClient();
-    const currentValue = await redisClient.get(REDIS_QUERY_KEY);
-
-    return currentValue;
-  },
+  loader: () => getCurrentQueryValue(),
 });
