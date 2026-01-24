@@ -21,8 +21,8 @@ export const auth = betterAuth({
             serverEnv.OAUTH_CLIENT_SECRET_FILE,
             "utf8",
           ),
-          discoveryUrl:
-            "https://auth.example.com/.well-known/openid-configuration",
+
+          discoveryUrl: `${serverEnv.OAUTH_ISSUER}/.well-known/openid-configuration`,
           // ... other config options
         },
         // Add more providers as needed
