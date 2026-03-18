@@ -4375,7 +4375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"h3-v2@npm:h3@2.0.1-rc.16":
+"h3-v2@npm:h3@2.0.1-rc.16, h3@npm:^2.0.1-rc.11":
   version: 2.0.1-rc.16
   resolution: "h3@npm:2.0.1-rc.16"
   dependencies:
@@ -4389,21 +4389,6 @@ __metadata:
   bin:
     h3: bin/h3.mjs
   checksum: 10c0/5da1c575307ef3cb953c4e79a1538878b93bca5218935ce77d36e8b4a9ac581ff789252cbbab6288855bcd796eeb2e91d16d00b52d9722d72bbfa515bba576ce
-  languageName: node
-  linkType: hard
-
-"h3@npm:^2.0.1-rc.11":
-  version: 2.0.1-rc.11
-  resolution: "h3@npm:2.0.1-rc.11"
-  dependencies:
-    rou3: "npm:^0.7.12"
-    srvx: "npm:^0.10.1"
-  peerDependencies:
-    crossws: ^0.4.1
-  peerDependenciesMeta:
-    crossws:
-      optional: true
-  checksum: 10c0/3e8b3608a825e4278d9853f8bd6c27040f9f996a885500cbc4c8fb60ab079fddda7863ad261dd77f21b969c91f53dd245d0085e43a0177e1cbdcc939124c7b80
   languageName: node
   linkType: hard
 
