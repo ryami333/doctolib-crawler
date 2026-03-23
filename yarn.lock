@@ -4393,17 +4393,19 @@ __metadata:
   linkType: hard
 
 "h3@npm:^2.0.1-rc.11":
-  version: 2.0.1-rc.11
-  resolution: "h3@npm:2.0.1-rc.11"
+  version: 2.0.1-rc.19
+  resolution: "h3@npm:2.0.1-rc.19"
   dependencies:
-    rou3: "npm:^0.7.12"
-    srvx: "npm:^0.10.1"
+    rou3: "npm:^0.8.1"
+    srvx: "npm:^0.11.12"
   peerDependencies:
     crossws: ^0.4.1
   peerDependenciesMeta:
     crossws:
       optional: true
-  checksum: 10c0/3e8b3608a825e4278d9853f8bd6c27040f9f996a885500cbc4c8fb60ab079fddda7863ad261dd77f21b969c91f53dd245d0085e43a0177e1cbdcc939124c7b80
+  bin:
+    h3: bin/h3.mjs
+  checksum: 10c0/4c52962134b244b69d02fde7b1b7aa357bfa3502b55862c5daa164c35fb63dccdc642c8d5b5265a1471ff1e7351187cc3612e15169a80279bdeae28449f136db
   languageName: node
   linkType: hard
 
@@ -6344,7 +6346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rou3@npm:^0.8.0":
+"rou3@npm:^0.8.0, rou3@npm:^0.8.1":
   version: 0.8.1
   resolution: "rou3@npm:0.8.1"
   checksum: 10c0/c8728cf3c41833db0e20cbadba07b3c678b8b9fb12db1d8803f275a7a6cce02d0be9bee79367575883f65659c9c0ed1001e6527146ed27772e439e5d6c68d264
@@ -6523,6 +6525,15 @@ __metadata:
   bin:
     srvx: bin/srvx.mjs
   checksum: 10c0/48774e37eb2d8ebfc29ba7f16bb761040c8664d665bd9cddd2be25f82506dd6a17d4b0567b9bf862f0b4865c0f67ae846be62149af0214b00d49aa02f140940c
+  languageName: node
+  linkType: hard
+
+"srvx@npm:^0.11.12":
+  version: 0.11.13
+  resolution: "srvx@npm:0.11.13"
+  bin:
+    srvx: bin/srvx.mjs
+  checksum: 10c0/571eb5463eee301a43cfd49b629145962f964a1c049454bd390267c3eae29261d5aee026aefe2ee42a66dbe2bf66db7853d2f8e2d247feea3a6032ba6286c8fd
   languageName: node
   linkType: hard
 
