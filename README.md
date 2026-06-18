@@ -18,11 +18,11 @@ to it.
 
 The project runs as three containers, orchestrated with Docker Compose:
 
-| Service    | What it does                                                                                                   |
-| ---------- | -------------------------------------------------------------------------------------------------------------- |
-| `frontend` | A [TanStack Start](https://tanstack.com/start) + React (Mantine) web app where you manage the list of URLs to watch. Protected by OAuth login. |
+| Service    | What it does                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `frontend` | A [TanStack Start](https://tanstack.com/start) + React (Mantine) web app where you manage the list of URLs to watch. Protected by OAuth login.                                 |
 | `worker`   | A [Bull](https://github.com/OptimalBits/bull)-based job runner that drives a headless Chromium (via Puppeteer) to load each search page, detect new results, and queue emails. |
-| `valkey`   | A [Valkey](https://valkey.io) (Redis-compatible) instance used both as the Bull queue backend and to store your watch list and the set of already-seen results. |
+| `valkey`   | A [Valkey](https://valkey.io) (Redis-compatible) instance used both as the Bull queue backend and to store your watch list and the set of already-seen results.                |
 
 The flow:
 
@@ -57,13 +57,13 @@ Copy the example and fill it in:
 cp .env.example .env
 ```
 
-| Variable                   | Description                                                  |
-| -------------------------- | ------------------------------------------------------------ |
-| `GMAIL_USER`               | The Gmail address used to send notifications.                |
-| `NODEMAILER_FROM_ADDRESS`  | The "From" address on notification emails.                   |
-| `NODEMAILER_TO_ADDRESS`    | The address that should receive notifications (i.e. you).    |
-| `OAUTH_CLIENT_ID`          | OAuth client ID registered with your OIDC provider.          |
-| `OAUTH_ISSUER`             | Base URL of your OIDC provider (used for OpenID discovery).  |
+| Variable                  | Description                                                 |
+| ------------------------- | ----------------------------------------------------------- |
+| `GMAIL_USER`              | The Gmail address used to send notifications.               |
+| `NODEMAILER_FROM_ADDRESS` | The "From" address on notification emails.                  |
+| `NODEMAILER_TO_ADDRESS`   | The address that should receive notifications (i.e. you).   |
+| `OAUTH_CLIENT_ID`         | OAuth client ID registered with your OIDC provider.         |
+| `OAUTH_ISSUER`            | Base URL of your OIDC provider (used for OpenID discovery). |
 
 A couple of additional environment variables are consumed at runtime:
 
@@ -150,5 +150,5 @@ node ./bin/search.ts --url "https://www.doctolib.de/..." --url "https://..."
 - Doctolib is a single-page app and the markup it renders is not a stable, public
   API. If Doctolib changes their front-end, the result-detection selectors in
   `lib/searchLatestResults.ts` may need updating.
-- This tool only tells you that a slot *appeared*; you still need to be quick to
+- This tool only tells you that a slot _appeared_; you still need to be quick to
   actually book it.
