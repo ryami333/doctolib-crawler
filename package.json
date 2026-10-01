@@ -29,7 +29,7 @@
     "better-auth": "^1.6.19",
     "bull": "^4.16.5",
     "dotenv": "^17.4.2",
-    "nodemailer": "^9.0.1",
+    "nodemailer": "^10.0.9",
     "prettier": "^3.8.4",
     "puppeteer": "^25.1.0",
     "react": "^19.2.7",
